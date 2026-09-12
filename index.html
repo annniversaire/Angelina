@@ -753,6 +753,8 @@ button {
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
 <script>
 
 
@@ -828,6 +830,47 @@ envelope.addEventListener(
     /*
        Ouvre l'enveloppe
     */
+
+    /* 🎉 Confettis déclenchés au clic sur l'enveloppe */
+    if (typeof confetti === "function") {
+
+      // Explosion centrale
+      confetti({
+        particleCount: 140,
+        spread: 95,
+        startVelocity: 42,
+        origin: { x: 0.5, y: 0.58 }
+      });
+
+      // Vague depuis la gauche
+      confetti({
+        particleCount: 75,
+        angle: 60,
+        spread: 65,
+        startVelocity: 35,
+        origin: { x: 0, y: 0.70 }
+      });
+
+      // Vague depuis la droite
+      confetti({
+        particleCount: 75,
+        angle: 120,
+        spread: 65,
+        startVelocity: 35,
+        origin: { x: 1, y: 0.70 }
+      });
+
+      // Deuxième vague, légèrement décalée
+      setTimeout(function () {
+        confetti({
+          particleCount: 90,
+          spread: 110,
+          startVelocity: 28,
+          origin: { x: 0.5, y: 0.45 }
+        });
+      }, 350);
+
+    }
 
     envelope.classList.add("open");
 

@@ -572,6 +572,72 @@ button {
   object-fit: contain;
 }
 
+
+/* =========================
+   CONTRÔLES FINAUX
+========================= */
+
+.final-controls {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.replay-button {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fffaf1;
+  color: #786f63;
+  border: 1px solid #e5d8c7;
+  box-shadow: 0 5px 14px rgba(60,45,25,.10);
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.replay-button:hover {
+  transform: rotate(-25deg) scale(1.08);
+  box-shadow: 0 8px 18px rgba(60,45,25,.15);
+}
+
+.replay-button:active {
+  transform: rotate(-25deg) scale(.96);
+}
+
+.donate-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #0070ba;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 5px 14px rgba(0,112,186,.18);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.donate-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,112,186,.25);
+}
+
+.paypal-mark {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
 </style>
 
 </head>
@@ -1442,18 +1508,92 @@ closePopup.addEventListener(
             Joyeux anniversaire Angélina 🎂🎉
           </h1>
 
-
           <img
             src="Anniversaire.jpg"
             alt="Joyeux anniversaire Angélina"
             class="birthday-image"
           >
 
+          <div class="final-controls">
+
+
+			<div class="click-hint">Rejouer            <a
+              id="replayAnimation"
+              class="replay-button"
+              href="https://annniversaire.github.io/QuizzAnge"
+              aria-label="Rejouer l'animation complète"
+              title="Rejouer l'animation complète"
+            >
+              ↻
+            </a></div>			
+
+
+			    <div class="click-hint">Soutenez la fondation BELGROUM qui oeuvre au bien-être de la famille BELGROUM 💙 <BR></BR>           <a
+              href="https://www.paypal.com/donate"
+              class="donate-link"
+              id="donateLink"
+              aria-label="Faire un don à la fonction BELGROUM"
+            >
+              <span class="paypal-mark">PayPal Donate</span>
+            </a></div>
+          </div>
+
         </div>
 
       </div>
 
     `;
+
+    /*
+      Rejouer toute l'aventure depuis le début.
+      Le rechargement remet la page, la musique et les animations à zéro.
+    */
+    // Le bouton "Rejouer" redirige maintenant vers l'URL du quiz.
+
+    /*
+      Faux bouton PayPal : le lien est réel, mais la navigation est bloquée
+      pour afficher uniquement le popup humoristique.
+    */
+    document.getElementById("donateLink").addEventListener(
+      "click",
+      function (event) {
+
+        event.preventDefault();
+
+        responsePopup.innerHTML = `
+          <div class="popup">
+
+            <div class="popup-icon">
+              💸
+            </div>
+
+            <h2>
+              Sérieusement! Tu as cliqué sur Donate 😭
+            </h2>
+
+            <p>
+              Merci pour ta générosité ! mais la fondation  accepte uniquement
+              les dons en gâteaux🎂
+            </p>
+
+            <button id="closeDonatePopup">
+              Aller arrête de cliquer maintenant stp!!!
+            </button>
+
+          </div>
+        `;
+
+        responsePopup.style.display = "flex";
+
+        document.getElementById("closeDonatePopup").addEventListener(
+          "click",
+          function () {
+            responsePopup.style.display = "none";
+          }
+        );
+
+      }
+    );
 
   }
 );

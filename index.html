@@ -1,3 +1,71 @@
+aujourd’hui 19:28
+Texte collé(20260912-172807).txt
+Document
+Texte collé (2)(3).txt
+Document
+non reggarde tu pars de cette pages, quand le boutons Oui disparait regarde ce que tu fait et applique le à cette page la deuxieme
+Texte collé(20260912-172935).txt
+Document
+Texte collé (2)(4).txt
+Document
+non du tout, repart de cette page :  analyse là tu fais quoi quand le bouton oui disparait, le bloc oui disparait il reste le bloc non avec son message qui change et il est en surbrillance jaune , tu vois alors applique ça à la deixmene page de Zina 
+Texte collé(20260912-173324).txt
+Document
+très bien, maintenant fait exctament la même chose ici 
+Texte collé(20260912-181602).txt
+Document
+pourquoi le bouton PayPal Donate n'ouvre pas la pop up
+Texte collé(20260912-184922).txt
+Document
+le bouton Aller arrête de cliquer maintenant, stp 🙏 tu peux lui appliqué un hover de contraste inverse 
+
+Oui 👍 C’est appliqué.
+
+Tous les boutons ont maintenant le hover en contraste inverse.
+Le bouton « Oui » qui fuit (#no) est exclu et garde son comportement.
+Le bouton Fermer du premier popup est concerné.
+Le bouton Fermer du popup suivant aussi.
+Le bouton Rejouer et le faux PayPal Donate aussi.
+
+Au survol : fond blanc + texte sombre + bordure sombre, avec le petit effet de soulèvement.
+
+Télécharger la version avec tous les hovers
+
+Anniversaire_Zina_2027_tous_boutons_contraste_inverse.html
+HTML
+Texte collé(20260912-185312).txt
+Document
+même chose pour ce docuement 
+
+Oui 👍 J’ai appliqué exactement le même principe à ce document :
+
+Tous les boutons → hover contraste inverse
+Le bouton Oui qui fuit (#no) → aucun changement, il continue à fuir normalement
+Bouton Fermer du premier popup → contraste inverse
+Bouton PayPal Donate → contraste inverse
+Bouton Fermer du popup PayPal → contraste inverse
+Effet léger de soulèvement au survol
+
+Télécharger la version modifiée
+
+Anniversaire_Amen_2026_tous_boutons_contraste_inverse.html
+HTML
+Texte collé(20260912-185436).txt
+Document
+même chose pour ce html : 
+
+Oui 👍 J’ai appliqué exactement le même principe à ce HTML :
+
+Tous les boutons → contraste inverse au survol
+Bouton Oui qui fuit (#no) → comportement inchangé
+Bouton Non (#yes) → contraste inverse
+Bouton Fermer du popup → contraste inverse
+Bouton PayPal Donate → contraste inverse
+Bouton Rejouer ↻ → contraste inverse également
+Petit effet de soulèvement au survol
+
+Télécharger le HTML modifié
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -696,6 +764,44 @@ button {
   display: none;
 }
 
+
+
+/* Contraste inverse sur tous les boutons, sauf le bouton Oui qui fuit */
+button:not(#no),
+.replay-button {
+  transition: background .2s ease, color .2s ease, border-color .2s ease,
+              transform .2s ease, box-shadow .2s ease;
+}
+
+button:not(#no):hover,
+.replay-button:hover {
+  background: #fff !important;
+  color: #27231e !important;
+  border: 2px solid #27231e !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+button:not(#no):hover *,
+.replay-button:hover * {
+  color: #27231e !important;
+}
+
+/* Le bouton PayPal conserve le contraste inverse */
+.donate-link:hover {
+  background: #fff !important;
+  color: #27231e !important;
+  border: 2px solid #27231e !important;
+}
+
+.donate-link:hover .paypal-mark {
+  color: #27231e !important;
+}
+
+/* Le bouton Oui qui fuit conserve son comportement */
+#no:hover {
+  border: none !important;
+}
 
 </style>
 
@@ -1638,3 +1744,5 @@ closePopup.addEventListener(
 </body>
 </html>
 ```
+Anniversaire_Angelina_2026_tous_boutons_contraste_inverse.html
+HTML
